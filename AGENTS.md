@@ -1,0 +1,28 @@
+# Tmux Configuration Agent Guidelines
+
+## Overview
+This is a tmux configuration directory with tmux.conf and gitmux.yml files. No build/test commands needed - configuration files are reloaded via tmux.
+
+## Configuration Management
+- Main config: `tmux.conf` - tmux configuration with plugins and key bindings
+- Git status: `gitmux.yml` - gitmux configuration for git info in status bar
+- Reload config: `tmux source-file ~/.config/tmux/tmux.conf` or use prefix + r
+
+## Style Guidelines
+- Use 2-space indentation for YAML files
+- Comment structure: `# Comment` for tmux.conf, standard YAML comments for gitmux.yml
+- Key bindings follow vim-style navigation (h/j/k/l)
+- Color scheme: Catppuccin Mocha theme
+- Prefix key: § (section symbol)
+
+## File Conventions
+- tmux.conf: Standard tmux configuration syntax with set/bind commands
+- gitmux.yml: YAML configuration with symbols, styles, and layout sections
+- Comments include ASCII art headers and descriptive inline comments
+- Plugin management via TPM (Tmux Plugin Manager)
+
+## Key Areas
+- Plugins loaded via @plugin directives
+- Custom key bindings for splits, navigation, and vim integration
+- Status bar customization with git integration via gitmux
+- Session management integration with sesh and fzf
