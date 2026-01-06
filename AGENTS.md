@@ -26,3 +26,12 @@ This is a tmux configuration directory with tmux.conf and gitmux.yml files. No b
 - Custom key bindings for splits, navigation, and vim integration
 - Status bar customization with git integration via gitmux
 - Session management integration with sesh and fzf
+
+## Gotchas
+
+### Status bar with shell commands
+- Use `set -ag` (not `set -agF`) when status-right/left contains `#()` shell commands
+- `-F` flag expands formats immediately at config load time, breaking `#()` execution
+- Status bar is built **after** `run '~/.config/tmux/plugins/tpm/tpm'` so catppuccin theme vars are available
+- tmux-battery plugin interpolates `#{battery_*}` vars only in status options that exist when TPM runs; since we set status-right after TPM, call battery scripts directly
+- Battery segment uses wrapper script `~/.config/tmux/scripts/battery_segment.sh` which detects battery presence (macOS: pmset, Linux: upower or /sys/class/power_supply/BAT*) and outputs nothing on servers without batteries
