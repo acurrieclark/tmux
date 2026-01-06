@@ -35,3 +35,4 @@ This is a tmux configuration directory with tmux.conf and gitmux.yml files. No b
 - Status bar is built **after** `run '~/.config/tmux/plugins/tpm/tpm'` so catppuccin theme vars are available
 - tmux-battery plugin interpolates `#{battery_*}` vars only in status options that exist when TPM runs; since we set status-right after TPM, call battery scripts directly
 - Battery segment uses wrapper script `~/.config/tmux/scripts/battery_segment.sh` which detects battery presence (macOS: pmset, Linux: upower or /sys/class/power_supply/BAT*) and outputs nothing on servers without batteries
+- Session segment uses wrapper script `~/.config/tmux/scripts/session_segment.sh` which hides session name for unnamed (numeric) sessions but always shows the prefix indicator icon
